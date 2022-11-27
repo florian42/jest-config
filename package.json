@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "vite",
     "test": "jest --coverage",
+    "test:debug": "node --inspect-brk ./node_modules/jest/bin/jest.js --runInBand --watch",
     "build": "tsc && vite build",
     "preview": "vite preview"
   },
@@ -37,6 +38,24 @@
     "moduleNameMapper": {
       "\\.(css|less)$": "identity-obj-proxy",
       "^.+\\.svg$": "jest-svg-transformer"
+    },
+    "collectCoverageFrom": ["**/src/**/*.(tsx|ts)"],
+    "coveragePathIgnorePatterns": [
+      ".*d.ts"
+    ],
+  "coverageThreshold": {
+    "global": {
+      "statements": 34,
+      "branches": 24,
+      "functions": 29,
+      "lines": 29
+    },
+    "./src/App.tsx": {
+      "statements": 100,
+      "branches": 80,
+      "functions": 100,
+      "lines": 100
     }
+  }
   }
 }
